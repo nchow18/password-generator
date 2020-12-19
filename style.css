@@ -19,6 +19,8 @@ body {
   flex-direction: column;
   padding: 0rem;
   margin: 2rem;
+  max-width: 30rem;
+  min-width: 30rem;
 }
 
 .title-style {
@@ -69,7 +71,8 @@ label {
   align-items: center;
   word-break: break-all;
   border-radius: 15px;
-  width: 80%;
+  max-width: 80%;
+  min-width: 70%;
 }
 
 .btn {
@@ -86,4 +89,29 @@ label {
 
 .btn:hover {
   background-color: #ffffff33;
+}
+
+/* -------------------------------------- */
+/*               MEDIA QUERY              */
+/* -------------------------------------- */
+
+
+/*----------- MEDIA SCREEN 980 ---------*/
+
+@media screen and (max-width: 768px) {
+
+  .wrapper {
+    max-width: 30rem;
+    min-width: 30rem;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+
+  .wrapper {
+    max-width: 90%;
+    min-width: 90%;
+  }
+
 }
