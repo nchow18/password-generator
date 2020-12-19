@@ -4,8 +4,6 @@
 
 ## main requirements:
 
-markup : * Bullet list
-
 * generate lower case values
 * generate upper case values
 * generate symbol values
@@ -13,4 +11,4 @@ markup : * Bullet list
 * codes must loop and generate to the password.length
 * each character is randomized based on math.floor and math.random based on the length of the chosen password
 
-website Link: https://nchow18.github.io/password-generator/index.html
+# website Link: https://nchow18.github.io/password-generator/index.html
