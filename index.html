@@ -10,13 +10,13 @@
   <body>
     <div class="wrapper">
       <h1 class="title">Password Generator</h1> 
-      <h2>Password</h2>
-    <form class="form">
+      <h3 class="password-display" id="passwordDisplay">Password</h3>
+    <form id="passwordGeneratorForm" class="form">
       <label for="">Number of Characters</label>
       <div class="character-amount-container">
         <!--slider for number of characters-->
         <input type="range" min="8" maax="128" id="characterAmountRange">
-        <input type="number" min="8" max="128" id="characterAmountNumber">
+        <input class="number-input" type="number" min="8" max="128" id="characterAmountNumber">
       </div>
 
 
@@ -28,7 +28,7 @@
       <label for="">Include Symbols</label>
       <input type="checkbox" id="includeSymbols">
 <!--button to generate password-->
-      <button type="submit">Generate Password</button>
+      <button class="btn" type="submit">Generate Password</button>
     </form>
     </div><!--wrapper div-->
     <script src="script.js"></script>
