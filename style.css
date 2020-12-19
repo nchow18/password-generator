@@ -17,8 +17,7 @@ body {
   align-items: center;
   flex-direction: column;
   padding: 3rem;
-  margin: 3rem;
-  width: 50%;
+  margin: 2rem;
 }
 
 .form {
@@ -45,7 +44,7 @@ label {
 }
 
 .number-input {
-  width: 2rem;
+  width: 3rem;
 }
 
 .password-display {
@@ -53,7 +52,6 @@ label {
   color: black;
   padding: 1rem;
   border: 1px solid black;
-  height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
