@@ -1,85 +1,51 @@
+// Assignment code here
 
-/* const of range, numbers */
+function generatePassword(passwordInput) {
+  var passwordInput = window.prompt('Choose a number between 8 - 128');
+  if (passwordInput >= 8 && passwordInput <= 128) { passwordInput ;} else { alert('Try again');}
 
-const characterAmountRange = document.getElementById('characterAmountRange')
-const characterAmountNumber = document.getElementById('characterAmountNumber')
+  /* lower case character true or false */
+  var lowerCase = confirm('confirm for lower case characters');
+  var lower;
+  if (lowerCase === true) { lower = 'abcdefghijklmnopqrstuvwxyz';} else { lower = '';}
 
-/* const of checkbox selection uppercase, numbers and symbols */
+  /* upper case character true or false */
+  var upperCase = confirm('Confirm for upper case characters')
+  var upper;
+  if (upperCase === true) { upper = "ABCDEFHGIJKLMNOPQRSTUVWXYZ";} else { lower = '';}
 
-const includeUppercaseElement = document.getElementById('includeUppercase')
-const includeNumbersElement = document.getElementById('includeNumbers')
-const includeSymbolsElement = document.getElementById('includeSymbols')
+  /* symbols character true or false */
+  var symbolsCharacter = confirm('Confirm for symbol characters')
+  var symbols;
+  if (symbolsCharacter === true) { symbols = "!@#$%^&*()_-=+[]{}";} else { symbols = '';}
 
-/* const form - password generator */
+  /* numbers character true or false */
+  var numberCharacter = confirm('Confirm for number characters')
+  var numbers;
+  if (numberCharacter === true) {numbers = "0123456789"} else { numbers = '';}
 
-const form = document.getElementById('passwordGeneratorForm')
-
-/* password display */
-
-const passwordDisplay = document.getElementById('passwordDisplay')
-
-/* array of character codes to generate */
-
-const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
-const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122)
-const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57)
-const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(
-  arrayFromLowToHigh(58, 64)
-).concat(
-  arrayFromLowToHigh(91, 96)
-).concat(
-  arrayFromLowToHigh(123, 126)
-)
-
-/* new elements */
-
-characterAmountNumber.addEventListener('input', syncCharacterAmount)
-characterAmountRange.addEventListener('input', syncCharacterAmount)
-
-/* buttom submit to generate password */
-
-form.addEventListener('submit', e => {
-  e.preventDefault()
-  const characterAmount = characterAmountNumber.value
-  const includeUppercase = includeUppercaseElement.checked
-  const includeNumbers = includeNumbersElement.checked
-  const includeSymbols = includeSymbolsElement.checked
-  const password = generatePassword(characterAmount, includeUppercase, includeNumbers, includeSymbols)
-  passwordDisplay.innerText = password
-})
-
-/* code for generating the password, includes character amount/upper case/numbers/symbols */
-/* all code must include lower case char codes */
-
-function generatePassword(characterAmount, includeUppercase, includeNumbers, includeSymbols) {
-  let charCodes = LOWERCASE_CHAR_CODES
-  if (includeUppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES)
-  if (includeSymbols) charCodes = charCodes.concat(SYMBOL_CHAR_CODES)
-  if (includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
-  
-/* loop of generating password, less than character amount +1, */
-
-  const passwordCharacters = []
-  for (let i = 0; i < characterAmount; i++) {
-    const characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
-    passwordCharacters.push(String.fromCharCode(characterCode))
+  /* random number generator */
+  var result = '';
+  var list = lower.concat(upper).concat(symbols).concat(numbers);
+  var characterLength = list.length;
+  for (var i = 0; i < passwordInput; i++) {
+    result += list.charAt(Math.floor(Math.random() * characterLength));
   }
-
-  /* joins all characters together */
-  
-  return passwordCharacters.join('')
+return result;
 }
 
-function arrayFromLowToHigh(low, high) {
-  const array = []
-  for (let i = low; i <= high; i++) {
-    array.push(i)
-  }
-  return array
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var replaceText = document.querySelector("textarea");
+  replaceText.textContent = password;
+ 
+
 }
 
-function syncCharacterAmount(e) {
-  const value = e.target.value
-  characterAmountNumber.value = value
-  characterAmountRange.value = value
-}
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
