@@ -2,7 +2,7 @@
 
 function generatePassword(passwordInput) {
   var passwordInput = window.prompt('Choose a number between 8 - 128');
-  if (passwordInput >= 8 && passwordInput <= 128) { passwordInput ;} else { alert('Try again');}
+  if (passwordInput >= 8 && passwordInput <= 128) { passwordInput ;} else { alert('Password length must be within 8-128, you chose: ' + passwordInput); return;}
 
   /* lower case character true or false */
   var lowerCase = confirm('confirm for lower case characters');
